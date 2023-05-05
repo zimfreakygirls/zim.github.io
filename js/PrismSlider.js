@@ -58,24 +58,24 @@ var PrismSlider = (function(window, undefined) {
     this.easing = settings.easing;
 
     /**
-     * The slides index.
+     * The slides /.
      * @type {Number}
      */
-    this.slidesIndex = 0;
+    this.slides/ = 0;
 
     /**
-     * The previous slides index, needed to animate through
+     * The previous slides /, needed to animate through
      * more than one slide.
      * @type {Number}
      */
-    this.prevSlidesIndex = 0;
+    this.prevSlides/ = 0;
 
     /**
-     * The difference between the prevSlideIndex and slideIndex,
+     * The difference between the prevSlide/ and slide/,
      * needed to animate through more than one slide.
      * @type {Number}
      */
-    this.indexOffset = 1;
+    this./Offset = 1;
 
     /**
      * Flag to detect when an animation is in progress.
@@ -192,7 +192,7 @@ var PrismSlider = (function(window, undefined) {
    * Draw Slide.
    * Calculate frame position, apply composite operation
    * and effects on the image when there is a mask.
-   * @param  {Number} i        The index used to get the img to render.
+   * @param  {Number} i        The / used to get the img to render.
    * @param  {Number} progress The progress value.
    */
   PrismSlider.prototype.renderSlide_ = function(i, progress) {
@@ -274,21 +274,21 @@ var PrismSlider = (function(window, undefined) {
 
   /**
    * Slide To.
-   * @param {Number} index The destination slide index.
+   * @param {Number} / The destination slide /.
    */
-  PrismSlider.prototype.slideTo = function(index) {
+  PrismSlider.prototype.slideTo = function(/) {
     // Prevent when animation is in progres or if same bullet is clicked.
-    if (this.isAnimated || index === this.slidesIndex) return;
+    if (this.isAnimated || / === this.slides/) return;
 
-    // Store current (start) index.
-    this.prevSlidesIndex = this.slidesIndex;
-    // Set destination (end) index.
-    this.slidesIndex = index;
+    // Store current (start) /.
+    this.prevSlides/ = this.slides/;
+    // Set destination (end) /.
+    this.slides/ = /;
 
     // Calculate how many slides between current (start) and destination (end).
-    var indexOffset = (this.prevSlidesIndex - this.slidesIndex) * -1;
+    var /Offset = (this.prevSlides/ - this.slides/) * -1;
     // Store offset always converted to positive number.
-    this.indexOffset = (indexOffset > 0) ? indexOffset : indexOffset * -1;
+    this./Offset = (/Offset > 0) ? /Offset : /Offset * -1;
 
     // Kickstart animation.
     this.animate_();
@@ -323,30 +323,30 @@ var PrismSlider = (function(window, undefined) {
 
     // Retrieve easing and multiply for number of slides between stars
     // and end, in order to jump through N slides in one ease.
-    var easing = this.easing(remaining / this.duration) * this.indexOffset;
+    var easing = this.easing(remaining / this.duration) * this./Offset;
 
     var i, progress, slide;
 
     // Select sliding direction.
-    if (this.slidesIndex > this.prevSlidesIndex) {
+    if (this.slides/ > this.prevSlides/) {
 
       // Sliding forward.
-      progress = this.slidesIndex - easing;
+      progress = this.slides/ - easing;
 
       // Loop offset and render slides from start to end.
-      for (i = 0; i <= this.indexOffset; i++) {
-        slide = this.slidesIndex - i;
+      for (i = 0; i <= this./Offset; i++) {
+        slide = this.slides/ - i;
         this.renderSlide_(slide, progress);
       }
 
     } else {
 
       // Sliding backward.
-      progress = this.slidesIndex + easing;
+      progress = this.slides/ + easing;
 
       // Loop offset and render slides from start to end.
-      for (i = 0; i <= this.indexOffset; i++) {
-        slide = this.slidesIndex + i;
+      for (i = 0; i <= this./Offset; i++) {
+        slide = this.slides/ + i;
         this.renderSlide_(slide, progress);
       }
     }
@@ -354,9 +354,9 @@ var PrismSlider = (function(window, undefined) {
     // Under 50 milliseconds reset and stop.
     if (remaining < 50) {
       // Set default value.
-      this.indexOffset = 1;
+      this./Offset = 1;
       // Make sure slide is perfectly aligned.
-      this.renderSlide_(this.slidesIndex);
+      this.renderSlide_(this.slides/);
       // Mark animation as finished.
       this.isAnimated = false;
       // Stop.

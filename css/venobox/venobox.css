@@ -14,7 +14,7 @@ body{
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 999;
+    z-/: 999;
     overflow: hidden;
     opacity: 0;
     transition: opacity .25s ease-in-out;
@@ -330,5 +330,5 @@ body{
     padding: 0;
     left: 0;
     overflow: hidden;
-    z-index: 1;
+    z-/: 1;
 }

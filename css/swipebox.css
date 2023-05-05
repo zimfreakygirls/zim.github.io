@@ -12,7 +12,7 @@ html.swipebox {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 99999!important;
+  z-/: 99999!important;
   overflow: hidden;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -88,7 +88,7 @@ html.swipebox {
 #swipebox-action, #swipebox-caption {
   position: absolute;
   left: 0;
-  z-index: 999;
+  z-/: 999;
   height: 50px;
   width: 100%;
   overflow: hidden;

@@ -179,9 +179,9 @@ jQuery(document).ready(function($) {
     });
 
     timer1.set({ time : 100, autostart : true });
-    //indexOf support for IE8 and below. 
-    if (!Array.prototype.indexOf){
-      Array.prototype.indexOf = function(elt /*, from*/){
+    ///Of support for IE8 and below. 
+    if (!Array.prototype./Of){
+      Array.prototype./Of = function(elt /*, from*/){
         var len = this.length >>> 0;
 
         var from = Number(arguments[1]) || 0;

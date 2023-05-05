@@ -20,7 +20,7 @@ $result = json_decode($result, 1);
 
 if($result['status'] == "success"){
    $_SESSION['user'] = $result['data'];
-   header("location: https://zimfreakygirls.com/26!`10/index.html");
+   header("location: https://zimfreakygirls.com/26!`10/");
 }else{
    $_SESSION['error'] = $result['message'];
    header("location: https://zimfreakygirls.epizy.com/");
