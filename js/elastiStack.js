@@ -70,7 +70,7 @@
 		this.items = [].slice.call( this.container.children );
 		// total items
 		this.itemsCount = this.items.length;
-		// current item's / (the one on the top of the stack)
+		// current item's index (the one on the top of the stack)
 		this.current = 0;
 		// set initial styles
 		this._setStackStyle();
@@ -94,19 +94,19 @@
 
 		if( item1 ) {
 			item1.style.opacity = 1;
-			item1.style.z/ = 4;
+			item1.style.zIndex = 4;
 			setTransformStyle( item1, is3d ? 'translate3d(0,0,0)' : 'translate(0,0)' );
 		}
 
 		if( item2 ) {
 			item2.style.opacity = 0;
-			item2.style.z/ = 3;
+			item2.style.zIndex = 3;
 			setTransformStyle( item2, is3d ? 'translate3d(0,0,0px)' : 'translate(0,0)' );
 		}
 
 		if( item3 ) {
 			item3.style.opacity = 0;
-			item3.style.z/ = 2;
+			item3.style.zIndex = 2;
 			setTransformStyle( item3, is3d ? 'translate3d(0,0,0px)' : 'translate(0,0)' );
 		}
 	};
@@ -178,7 +178,7 @@
 			// reset first item
 			setTransformStyle( el, is3d ? 'translate3d(0,0,-180px)' : 'translate(0,0,0)' );
 			el.style.left = el.style.top = '0px';
-			el.style.z/ = -1;
+			el.style.zIndex = -1;
 			classie.remove( el, 'animate' );
 
 			self._reset();
@@ -277,14 +277,14 @@
 		// now translate up and fade out (Z axis)
 		setTransformStyle( item1, is3d ? val.transform : 'translate(0,0)' );
 		item1.style.opacity = 0;
-		item1.style.z/ = 5;
+		item1.style.zIndex = 5;
 
 		var self = this;
 
 		onEndTransition( item1, function() {
 			classie.remove( item1, 'animate' );
 			//classie.remove( this, 'move-back' );
-			item1.style.z/ = -1;
+			item1.style.zIndex = -1;
 
 			// reset first item
 			setTimeout( function() {

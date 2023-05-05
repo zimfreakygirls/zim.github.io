@@ -602,7 +602,7 @@ function infinitySlider() {
 					if (CurrentEffectLength == 0) {
 						error = error+'There is not any effectInBack on the slide number: '+slidenumber+'\n';
 					}
-					else if (current.attr('data-effectinback')./Of('none') != -1) {
+					else if (current.attr('data-effectinback').indexOf('none') != -1) {
 					}
 					else {
 						for(var i=0; i<CurrentEffectLength; i++) {
@@ -665,7 +665,7 @@ function infinitySlider() {
 					if (CurrentEffectLength == 0) {
 						error = error+'There is not any effectOutBack on the slide number: '+slidenumber+'\n';
 					}
-					else if (current.attr('data-effectoutback')./Of('none') != -1) {
+					else if (current.attr('data-effectoutback').indexOf('none') != -1) {
 					}
 					else {
 						for(var i=0; i<CurrentEffectLength; i++) {
@@ -729,7 +729,7 @@ function infinitySlider() {
 					if (CurrentEffectLength == 0) {
 						error = error+'There is not any effectIn on the slide number: '+slidenumber+'\n';
 					}
-					else if (current.attr('data-effectin')./Of('none') != -1) {
+					else if (current.attr('data-effectin').indexOf('none') != -1) {
 					}
 					else {
 						for(var i=0; i<CurrentEffectLength; i++) {
@@ -803,7 +803,7 @@ function infinitySlider() {
 					if (CurrentEffectLength == 0) {
 						error = error+'There is not any effectOut on the slide number: '+slidenumber+'\n';
 					}
-					else if (current.attr('data-effectout')./Of('none') != -1) {
+					else if (current.attr('data-effectout').indexOf('none') != -1) {
 					}
 					else {
 						for(var i=0; i<CurrentEffectLength; i++) {
@@ -879,7 +879,7 @@ function infinitySlider() {
 			}
 			else if($('.iS-IE9').length > 0) {
 				var isIe = true;
-				slideItems.css({z/: 0, opacity: 0});
+				slideItems.css({zIndex: 0, opacity: 0});
 			}
 			else {
 				var isIe = false;
@@ -919,7 +919,7 @@ function infinitySlider() {
 				for ( var i = 1; i < EffectOutDelayBack.length; i++) {
 					style = style+'\n'+EffectOutDelayBack[i];			 
 				}
-var stylestandard = '.iS-Active {z-/: 2!important;}.iS-Notime > .iS-Item, .iS-Notime > .iS-Item > * {-webkit-transition: all 0s!important;	transition: all 0s!important;-webkit-transition-delay: 0s!important;transition-delay: 0s!important;}.iS-Item > * {-webkit-perspective: 1000px;perspective: 1000px;}.iS-Item > * {-webkit-backface-visibility: hidden;backface-visibility: hidden;}@-webkit-keyframes looplineactive {0% {-webkit-transform: scaleX(0);}100% {-webkit-transform: scaleX(1);}}@keyframes looplineactive {0% {transform: scaleX(0);}100% {transform: scaleX(1);}}.iS-Loopline {	-webkit-transform: scaleX(0);transform: scaleX(0);}.iS-Looplineactive {-webkit-animation: looplineactive infinite;animation: looplineactive infinite;	-webkit-animation-timing-function: ease-in-out;animation-timing-function: ease-in-out;-webkit-transform-origin: 0% 0% 0; transform-origin: 0% 0% 0;}';
+var stylestandard = '.iS-Active {z-index: 2!important;}.iS-Notime > .iS-Item, .iS-Notime > .iS-Item > * {-webkit-transition: all 0s!important;	transition: all 0s!important;-webkit-transition-delay: 0s!important;transition-delay: 0s!important;}.iS-Item > * {-webkit-perspective: 1000px;perspective: 1000px;}.iS-Item > * {-webkit-backface-visibility: hidden;backface-visibility: hidden;}@-webkit-keyframes looplineactive {0% {-webkit-transform: scaleX(0);}100% {-webkit-transform: scaleX(1);}}@keyframes looplineactive {0% {transform: scaleX(0);}100% {transform: scaleX(1);}}.iS-Loopline {	-webkit-transform: scaleX(0);transform: scaleX(0);}.iS-Looplineactive {-webkit-animation: looplineactive infinite;animation: looplineactive infinite;	-webkit-animation-timing-function: ease-in-out;animation-timing-function: ease-in-out;-webkit-transform-origin: 0% 0% 0; transform-origin: 0% 0% 0;}';
 				style = '<div class="iS-Style">'+style+stylestandard+'</style></div>';
 				if(slide.children('.iS-Style').length != 0) {
 					slide.children('.iS-Style').remove();
@@ -938,8 +938,8 @@ var stylestandard = '.iS-Active {z-/: 2!important;}.iS-Notime > .iS-Item, .iS-No
 			}
 			function slideRetro(slideItemOut,slideItemIn,slideBack) {
 					slideItems.css({opacity: 0});
-					slideItemIn.css({z/: 1, opacity: 1});
-					slideItemOut.css({z/: 0, opacity: 1});
+					slideItemIn.css({zIndex: 1, opacity: 1});
+					slideItemOut.css({zIndex: 0, opacity: 1});
 					var	top = 0+'%';
 					var	left = 0+'%';
 					var	opacity = 1;
@@ -1029,7 +1029,7 @@ var stylestandard = '.iS-Active {z-/: 2!important;}.iS-Notime > .iS-Item, .iS-No
 							currentDelay = 0;
 						}
 						currentDelay = (currentDelay+25);
-						if (currentEffect./Of('none') == -1) {
+						if (currentEffect.indexOf('none') == -1) {
 							var currentEffect = ($.trim(currentEffect)).split(' ');
 							for(var i=0; i<currentEffect.length; i++) {
 								rewriteEffects(currentEffect[i]);				
@@ -1080,7 +1080,7 @@ var stylestandard = '.iS-Active {z-/: 2!important;}.iS-Notime > .iS-Item, .iS-No
 						}
 
 						currentDelay = (currentDelay+25);
-						if (currentEffect./Of('none') == -1) {
+						if (currentEffect.indexOf('none') == -1) {
 							var currentEffect = ($.trim(currentEffect)).split(' ');
 							for(var i=0; i<currentEffect.length; i++) {
 								rewriteEffects(currentEffect[i]);				
@@ -1416,7 +1416,7 @@ var stylestandard = '.iS-Active {z-/: 2!important;}.iS-Notime > .iS-Item, .iS-No
 						position: 'absolute',
 						top: 0,
 						left: 0,
-						z/: -1
+						zIndex: -1
 					});
 					var ctx = oCanvas[0].getContext("2d");
 					ctx.font = oFontWeight+' '+oFontSize+' '+oFontFamily;		
@@ -1536,7 +1536,7 @@ currentImageParent.append('<p style="'+thisstyle+'">ImageBlur and ImageGrayscale
 			if (c_next == true) {
 				slideNextButton.click(function(){
 					var slideItemsNumber = slideItems.length;
-					var slideCurrent = slide.children('.iS-Content').children('.iS-Active')./();
+					var slideCurrent = slide.children('.iS-Content').children('.iS-Active').index();
 					/**/
 					var slideItemOut = slideItems.eq(slideCurrent);		
 					if(slideCurrent < slideItemsNumber-1) { slideCurrent++; }
@@ -1550,7 +1550,7 @@ currentImageParent.append('<p style="'+thisstyle+'">ImageBlur and ImageGrayscale
 			if (c_previous == true) {
 				slidePreviousButton.click(function(){
 					var slideItemsNumber = slideItems.length;
-					var slideCurrent = slide.children('.iS-Content').children('.iS-Active')./();
+					var slideCurrent = slide.children('.iS-Content').children('.iS-Active').index();
 					/**/		
 					var slideItemOut = slideItems.eq(slideCurrent);	
 					if(slideCurrent > 0) { slideCurrent--; }
@@ -1587,10 +1587,10 @@ currentImageParent.append('<p style="'+thisstyle+'">ImageBlur and ImageGrayscale
 			}
 			if (c_dot == true) {
 				slideDot.click(function(){
-					var slideItemOut = slideItems.eq(slideDots.children('.iS-Dotactive')./());				
-					var slideItemIn = slideItems.eq($(this)./());
+					var slideItemOut = slideItems.eq(slideDots.children('.iS-Dotactive').index());				
+					var slideItemIn = slideItems.eq($(this).index());
 					var slideDotIn = $(this);
-					var slideSelect = $(this)./() - slideDots.children('.iS-Dotactive')./();
+					var slideSelect = $(this).index() - slideDots.children('.iS-Dotactive').index();
 					if (slideSelect > 0) {
 						slideNext(slideItemOut,slideItemIn,slideDotIn);
 					}
@@ -1715,7 +1715,7 @@ currentImageParent.append('<p style="'+thisstyle+'">ImageBlur and ImageGrayscale
 				setTimeout(function(){
 					slideItems.eq(starterslide).addClass('iS-Active iS-Activede').removeClass('iS-Preactive iS-Notime');
 					if(isIe == true) {
-						slideItems.eq(starterslide).css({z/: 1, opacity: 1});
+						slideItems.eq(starterslide).css({zIndex: 1, opacity: 1});
 					}
 					/*Dotactive*/
 					if (c_dot == true) {

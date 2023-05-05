@@ -56,7 +56,7 @@
 	bottom: 5%;
 	text-align: center;
 	list-style: none;
-	z-/: 1;
+	z-index: 1;
 }
 
 .prism-slider .navigation li {

@@ -44,14 +44,14 @@ $(document).ready(function() {
 				var tempfocused = parseInt(templimited/2)+1;
 				if( templimited == 1) {
 					if(current.css('opacity',1)) {
-						current.css({opacity: 0, z/: -1});
+						current.css({opacity: 0, zIndex: -1});
 						current.parent('.iS-Commands').children('.iS-Previous').css({width: 50+'%'});
 						current.parent('.iS-Commands').children('.iS-Next').css({width: 50+'%'});						
 					}
 				}
 				else {
 					if(current.css('opacity',0)) {
-						current.css({opacity: 1, z/: ''});
+						current.css({opacity: 1, zIndex: ''});
 						current.parent('.iS-Commands').children('.iS-Previous').css({width: ''});
 						current.parent('.iS-Commands').children('.iS-Next').css({width: ''});						
 					}
@@ -77,21 +77,21 @@ $(document).ready(function() {
 	});
 	$('.iS-SkinThumbnails .iS-Dot').click(function(){
 		var target = $(this).parent('.iS-Dots').children('.iS-Dot');
-		var current = $(this)./();
+		var current = $(this).index();
 		thumbnail(current,target);
 	});
 	$('.iS-SkinThumbnails .iS-Next').click(function() {
 		var incommands = $(this).parent('.iS-Commands');
 		var indots = incommands.children('.iS-Dots');
 		var target = indots.children('.iS-Dot');
-		var current = (indots.children('.iS-Dotactive')./())+1;		
+		var current = (indots.children('.iS-Dotactive').index())+1;		
 		thumbnail(current,target);
 	});
 	$('.iS-SkinThumbnails .iS-Previous').click(function() {
 		var incommands = $(this).parent('.iS-Commands');
 		var indots = incommands.children('.iS-Dots');
 		var target = indots.children('.iS-Dot');
-		var current = (indots.children('.iS-Dotactive')./())-1;		
+		var current = (indots.children('.iS-Dotactive').index())-1;		
 		thumbnail(current,target);
 	});
 });

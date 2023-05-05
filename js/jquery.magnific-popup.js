@@ -136,8 +136,8 @@ MagnificPopup.prototype = {
 	 */
 	init: function() {
 		var appVersion = navigator.appVersion;
-		mfp.isIE7 = appVersion./Of("MSIE 7.") !== -1; 
-		mfp.isIE8 = appVersion./Of("MSIE 8.") !== -1;
+		mfp.isIE7 = appVersion.indexOf("MSIE 7.") !== -1; 
+		mfp.isIE8 = appVersion.indexOf("MSIE 8.") !== -1;
 		mfp.isLowIE = mfp.isIE7 || mfp.isIE8;
 		mfp.isAndroid = (/android/gi).test(appVersion);
 		mfp.isIOS = (/iphone|ipad|ipod/gi).test(appVersion);
@@ -163,7 +163,7 @@ MagnificPopup.prototype = {
 			// convert jQuery collection to array to avoid conflicts later
 			mfp.items = data.items.toArray();
 
-			mfp./ = 0;
+			mfp.index = 0;
 			var items = data.items,
 				item;
 			for(i = 0; i < items.length; i++) {
@@ -172,13 +172,13 @@ MagnificPopup.prototype = {
 					item = item.el[0];
 				}
 				if(item === data.el[0]) {
-					mfp./ = i;
+					mfp.index = i;
 					break;
 				}
 			}
 		} else {
 			mfp.items = $.isArray(data.items) ? data.items : [data.items];
-			mfp./ = data./ || 0;
+			mfp.index = data.index || 0;
 		}
 
 		// if popup is already opened - we just update the content
@@ -226,7 +226,7 @@ MagnificPopup.prototype = {
 				mfp.close();
 			});
 
-			mfp.wrap = _getEl('wrap').attr('tab/', -1).on('click'+EVENT_NS, function(e) {
+			mfp.wrap = _getEl('wrap').attr('tabindex', -1).on('click'+EVENT_NS, function(e) {
 				if(mfp._checkIfClose(e.target)) {
 					mfp.close();
 				}
@@ -478,10 +478,10 @@ MagnificPopup.prototype = {
 	},
 
 	/**
-	 * Set content of popup based on current /
+	 * Set content of popup based on current index
 	 */
 	updateItemHTML: function() {
-		var item = mfp.items[mfp./];
+		var item = mfp.items[mfp.index];
 
 		// Detach and perform modifications
 		mfp.contentContainer.detach();
@@ -490,7 +490,7 @@ MagnificPopup.prototype = {
 			mfp.content.detach();
 
 		if(!item.parsed) {
-			item = mfp.parseEl( mfp./ );
+			item = mfp.parseEl( mfp.index );
 		}
 
 		var type = item.type;	
@@ -569,10 +569,10 @@ MagnificPopup.prototype = {
 	
 	/**
 	 * Creates Magnific Popup data object based on given data
-	 * @param  {int} / / of item to parse
+	 * @param  {int} index Index of item to parse
 	 */
-	parseEl: function(/) {
-		var item = mfp.items[/],
+	parseEl: function(index) {
+		var item = mfp.items[index],
 			type;
 
 		if(item.tagName) {
@@ -600,12 +600,12 @@ MagnificPopup.prototype = {
 		}
 
 		item.type = type || mfp.st.type || 'inline';
-		item./ = /;
+		item.index = index;
 		item.parsed = true;
-		mfp.items[/] = item;
+		mfp.items[index] = item;
 		_mfpTrigger('ElementParse', item);
 
-		return mfp.items[/];
+		return mfp.items[index];
 	},
 
 
@@ -835,7 +835,7 @@ $.magnificPopup = {
 	proto: MagnificPopup.prototype,
 	modules: [],
 
-	open: function(options, /) {
+	open: function(options, index) {
 		_checkInstance();	
 
 		if(!options) {
@@ -846,7 +846,7 @@ $.magnificPopup = {
 			
 
 		options.isObj = true;
-		options./ = / || 0;
+		options.index = index || 0;
 		return this.instance.open(options);
 	},
 
@@ -925,16 +925,16 @@ $.fn.magnificPopup = function(options) {
 		if(options === 'open') {
 			var items,
 				itemOpts = _isJQ ? jqEl.data('magnificPopup') : jqEl[0].magnificPopup,
-				/ = parseInt(arguments[1], 10) || 0;
+				index = parseInt(arguments[1], 10) || 0;
 
 			if(itemOpts.items) {
-				items = itemOpts.items[/];
+				items = itemOpts.items[index];
 			} else {
 				items = jqEl;
 				if(itemOpts.delegate) {
 					items = items.find(itemOpts.delegate);
 				}
-				items = items.eq( / );
+				items = items.eq( index );
 			}
 			mfp._openClick({mfpEl:items}, jqEl, itemOpts);
 		} else {
@@ -1429,7 +1429,7 @@ $.magnificPopup.registerModule('zoom', {
 						transition = 'all '+(zoomSt.duration/1000)+'s ' + zoomSt.easing,
 						cssObj = {
 							position: 'fixed',
-							z/: 9999,
+							zIndex: 9999,
 							left: 0,
 							top: 0,
 							'-webkit-backface-visibility': 'hidden'
@@ -1616,17 +1616,17 @@ $.magnificPopup.registerModule(IFRAME_NS, {
 		// we don't care and support only one default type of URL by default
 		patterns: {
 			youtube: {
-				/: 'youtube.com', 
+				index: 'youtube.com', 
 				id: 'v=', 
 				src: '//www.youtube.com/embed/%id%?autoplay=1'
 			},
 			vimeo: {
-				/: 'vimeo.com/',
+				index: 'vimeo.com/',
 				id: '/',
 				src: '//player.vimeo.com/video/%id%?autoplay=1'
 			},
 			gmaps: {
-				/: '//maps.google.',
+				index: '//maps.google.',
 				src: '%id%&output=embed'
 			}
 		}
@@ -1658,10 +1658,10 @@ $.magnificPopup.registerModule(IFRAME_NS, {
 			var iframeSt = mfp.st.iframe;
 				
 			$.each(iframeSt.patterns, function() {
-				if(embedSrc./Of( this./ ) > -1) {
+				if(embedSrc.indexOf( this.index ) > -1) {
 					if(this.id) {
 						if(typeof this.id === 'string') {
-							embedSrc = embedSrc.substr(embedSrc.last/Of(this.id)+this.id.length, embedSrc.length);
+							embedSrc = embedSrc.substr(embedSrc.lastIndexOf(this.id)+this.id.length, embedSrc.length);
 						} else {
 							embedSrc = this.id.call( this, embedSrc );
 						}
@@ -1690,16 +1690,16 @@ $.magnificPopup.registerModule(IFRAME_NS, {
 
 /*>>gallery*/
 /**
- * Get looped / depending on number of slides
+ * Get looped index depending on number of slides
  */
-var _getLoopedId = function(/) {
+var _getLoopedId = function(index) {
 		var numSlides = mfp.items.length;
-		if(/ > numSlides - 1) {
-			return / - numSlides;
-		} else  if(/ < 0) {
-			return numSlides + /;
+		if(index > numSlides - 1) {
+			return index - numSlides;
+		} else  if(index < 0) {
+			return numSlides + index;
 		}
-		return /;
+		return index;
 	},
 	_replaceCurrTotal = function(text, curr, total) {
 		return text.replace(/%curr%/gi, curr + 1).replace(/%total%/gi, total);
@@ -1754,13 +1754,13 @@ $.magnificPopup.registerModule('gallery', {
 
 			_mfpOn('UpdateStatus'+ns, function(e, data) {
 				if(data.text) {
-					data.text = _replaceCurrTotal(data.text, mfp.currItem./, mfp.items.length);
+					data.text = _replaceCurrTotal(data.text, mfp.currItem.index, mfp.items.length);
 				}
 			});
 
 			_mfpOn(MARKUP_PARSE_EVENT+ns, function(e, element, values, item) {
 				var l = mfp.items.length;
-				values.counter = l > 1 ? _replaceCurrTotal(gSt.tCounter, item./, l) : '';
+				values.counter = l > 1 ? _replaceCurrTotal(gSt.tCounter, item.index, l) : '';
 			});
 
 			_mfpOn('BuildControls' + ns, function() {
@@ -1812,17 +1812,17 @@ $.magnificPopup.registerModule('gallery', {
 		}, 
 		next: function() {
 			mfp.direction = true;
-			mfp./ = _getLoopedId(mfp./ + 1);
+			mfp.index = _getLoopedId(mfp.index + 1);
 			mfp.updateItemHTML();
 		},
 		prev: function() {
 			mfp.direction = false;
-			mfp./ = _getLoopedId(mfp./ - 1);
+			mfp.index = _getLoopedId(mfp.index - 1);
 			mfp.updateItemHTML();
 		},
-		goTo: function(new/) {
-			mfp.direction = (new/ >= mfp./);
-			mfp./ = new/;
+		goTo: function(newIndex) {
+			mfp.direction = (newIndex >= mfp.index);
+			mfp.index = newIndex;
 			mfp.updateItemHTML();
 		},
 		preloadNearbyImages: function() {
@@ -1832,22 +1832,22 @@ $.magnificPopup.registerModule('gallery', {
 				i;
 
 			for(i = 1; i <= (mfp.direction ? preloadAfter : preloadBefore); i++) {
-				mfp._preloadItem(mfp./+i);
+				mfp._preloadItem(mfp.index+i);
 			}
 			for(i = 1; i <= (mfp.direction ? preloadBefore : preloadAfter); i++) {
-				mfp._preloadItem(mfp./-i);
+				mfp._preloadItem(mfp.index-i);
 			}
 		},
-		_preloadItem: function(/) {
-			/ = _getLoopedId(/);
+		_preloadItem: function(index) {
+			index = _getLoopedId(index);
 
-			if(mfp.items[/].preloaded) {
+			if(mfp.items[index].preloaded) {
 				return;
 			}
 
-			var item = mfp.items[/];
+			var item = mfp.items[index];
 			if(!item.parsed) {
-				item = mfp.parseEl( / );
+				item = mfp.parseEl( index );
 			}
 
 			_mfpTrigger('LazyLoad', item);

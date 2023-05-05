@@ -4,7 +4,7 @@
     margin: 0 auto;
     overflow: hidden;
     position: relative;
-    z-/: 1;
+    z-index: 1;
 }
 .swiper-wrapper {
     position: relative;
@@ -65,7 +65,7 @@
 	-moz-transition: all 1.2s ease-in-out 0s;
 	-o-transition: all 1.2s ease-in-out 0s;	
     width: 620px;
-    z-/: 100;
+    z-index: 100;
 }
 
 .swiper-slide.swiper-slide-active .slider-teaser {
@@ -101,7 +101,7 @@
     position: absolute;
     text-align: center;
     width: auto;
-    z-/: 100;
+    z-index: 100;
 }
 .swiper-pagination-switch {
     background: none repeat scroll 0 0 transparent;
@@ -127,7 +127,7 @@
     position: absolute;
     text-align: center;
     width: 100%;
-    z-/: 3;
+    z-index: 3;
 }
 .arrow-right2 {    
     position: absolute;
@@ -139,7 +139,7 @@
 	-moz-transition: all 0.3s ease 0s;
 	-o-transition: all 0.3s ease 0s;
 	-ms-transition: all 0.3s ease 0s;    
-    z-/:99;
+    z-index:99;
 }
 .arrow-left2 {
     left: 6%;
@@ -156,7 +156,7 @@
 	-moz-transition: all 0.3s ease 0s;
 	-o-transition: all 0.3s ease 0s;
 	-ms-transition: all 0.3s ease 0s;
-    z-/:99;
+    z-index:99;
 }
 .arrow-left2:hover {
     color:rgba(0,0,0,.5)
@@ -177,7 +177,7 @@
 	-moz-transition: all 0.3s ease 0s;
 	-o-transition: all 0.3s ease 0s;
 	-ms-transition: all 0.3s ease 0s;    
-    z-/:99;
+    z-index:99;
 }
 .arrow-left {
     height: 30px;
@@ -189,7 +189,7 @@
 	-moz-transition: all 0.3s ease 0s;
 	-o-transition: all 0.3s ease 0s;
 	-ms-transition: all 0.3s ease 0s;
-    z-/:99;
+    z-index:99;
 }
 .arrow-left:after{
 	content: "\f053";
@@ -226,7 +226,7 @@
 	width:100%;
 	bottom:-150px;
 	width:280px;
-	z-/:100;
+	z-index:100;
 }
 .swiper-mockup img{
 	max-width:100%;
@@ -247,7 +247,7 @@
 	-moz-transition-delay: 0.6s;
 	-o-transition-delay: 0.6s;
 	width: 420px !important;
-	z-/: 100;
+	z-index: 100;
 }
 .swiper-slide3 h1{
 	line-height:60px !important;

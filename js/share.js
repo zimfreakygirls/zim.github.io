@@ -33,7 +33,7 @@ $(document).ready(function(){
 			if(pos>=0) pos+=1;
 			var dist=Math.abs(pos);
 			$cur.css({
-				z/:buttonsMid-dist
+				zIndex:buttonsMid-dist
 			});
 			TweenMax.to($cur,1.1*(dist),{
 				x:pos*spacing,
@@ -71,7 +71,7 @@ $(document).ready(function(){
 			if(pos>=0) pos+=1;
 			var dist=Math.abs(pos);
 			$cur.css({
-				z/:dist
+				zIndex:dist
 			});
 
 			TweenMax.to($cur,0.4+((buttonsMid-dist)*0.1),{

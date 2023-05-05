@@ -17,7 +17,7 @@
 	-moz-transform: translateX(-50%) translateY(-50%);
 	-o-transform: translateX(-50%) translateY(-50%);
     width: 650px;
-	z-/:100;
+	z-index:100;
 	text-align:center;
 	margin:0 auto;
 	transition: all 0.2s linear 0s;
@@ -79,7 +79,7 @@
 	position: absolute;
 	bottom: 20px;
 	text-align: center;
-	z-/:900;
+	z-index:900;
 }
 
 .flex-control-paging li a {
@@ -103,7 +103,7 @@
 	top:50%;
 	left:0;
 	margin: -50px 0 0; 	
-	z-/:100;
+	z-index:100;
 }
 
 .flex-direction-nav li {
@@ -137,7 +137,7 @@
 	width: 90px; 
 	height: 90px; 
 	background: transparent url('../images/nav.png') no-repeat 5px 5px;	
-	z-/:200;
+	z-index:200;
 }
 
 .flex-direction-nav a.flex-next .arrow {
@@ -163,7 +163,7 @@
 			position: absolute;
 			top:0;
 			left:90px;
-			z-/:100;
+			z-index:100;
 			-webkit-transition:  all 0.3s ease-out; 
 			-moz-transition:  all 0.3s ease-out; 
 			transition:  all 0.3s ease-out; 	
@@ -180,7 +180,7 @@
 			left:0;
 			top:0;
 			width: 90px;	
-			z-/:10;		
+			z-index:10;		
 		}
 		
 		.preview .alt {
@@ -204,7 +204,7 @@
 			transition:  all 0.3s ease-out; 				
 			-webkit-backface-visibility: hidden;
 			backface-visibility: hidden;	
-			z-/:5;			
+			z-index:5;			
 					
 		}
 		

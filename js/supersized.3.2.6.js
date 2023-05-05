@@ -256,8 +256,8 @@
 				// Slide marker clicked
 				$(vars.slide_list+'> li').click(function(){
 				
-					/ = $(vars.slide_list+'> li')./(this);
-					targetSlide = / + 1;
+					index = $(vars.slide_list+'> li').index(this);
+					targetSlide = index + 1;
 					
 					base.goTo(targetSlide);
 					return false;
@@ -269,8 +269,8 @@
 			if (base.options.thumb_links){
 				$(vars.thumb_list+'> li').click(function(){
 				
-					/ = $(vars.thumb_list+'> li')./(this);
-					targetSlide = / + 1;
+					index = $(vars.thumb_list+'> li').index(this);
+					targetSlide = index + 1;
 					
 					api.goTo(targetSlide);
 					return false;

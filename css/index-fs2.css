@@ -78,7 +78,7 @@
 }
 .top_slider .slide1 .flex_caption1{
 	position:absolute;
-	z-/:30;
+	z-index:30;
 	left:50%;
 	top:45%;
 	/*width:100%;

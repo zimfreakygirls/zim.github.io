@@ -13,7 +13,7 @@
 	-o-transform: translateX(-50%) translateY(-50%);
 	-ms-transform: translateX(-50%) translateY(-50%);
     width: 80%;
-    z-/: 2;
+    z-index: 2;
 }
 .owl-goDown-out .title-header h1,.owl-goDown-out .title-header h3,.owl-goDown-in .title-header h1,.owl-goDown-in .title-header h3{
 	transition: all 0.2s linear 0s;-webkit-transition: all 0.3s linear 0s;-moz-transition: all 0.3s linear 0s;-o-transition: all 0.2s linear 0s;
@@ -32,7 +32,7 @@
     width: 30px;
 }
 .cs-slider .owl-carousel {
-    z-/: 0;
+    z-index: 0;
 	cursor:default;
 }
 .cs-slider-item {
@@ -58,7 +58,7 @@
     bottom: 7px;
     position: absolute;
     right: 7px;
-    z-/: 1;
+    z-index: 1;
 }
 .cs-slider-control.slide-nav {position: static;}
 .cs-slider-control.slide-nav .nav-control {
@@ -69,7 +69,7 @@
     position: absolute;
     top: 50%;
     width: 41px;
-	z-/:99;
+	z-index:99;
 	color: #fff;
 	cursor:pointer;
     font-size: 22px;

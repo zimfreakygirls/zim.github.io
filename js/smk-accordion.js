@@ -23,7 +23,7 @@
 			closeAble:  false,
 			closeOther: true,
 			slideSpeed: 150,
-			active/: false
+			activeIndex: false
 		}, options );
 
 		if( $(this).data('close-able') )    settings.closeAble = $(this).data('close-able');
@@ -31,7 +31,7 @@
 		if( $(this).data('show-icon') )     settings.showIcon = $(this).data('show-icon');
 		if( $(this).data('close-other') )   settings.closeOther = $(this).data('close-other');
 		if( $(this).data('slide-speed') )   settings.slideSpeed = $(this).data('slide-speed');
-		if( $(this).data('active-/') )  settings.active/ = $(this).data('active-/');
+		if( $(this).data('active-index') )  settings.activeIndex = $(this).data('active-index');
 
 		// Cache current instance
 		// To avoid scope issues, use 'plugin' instead of 'this'
@@ -59,7 +59,7 @@
 			}
 
 			//Add classes to accordion head and content for each section
-			plugin.find('.accordion_in').each(function(/, elem){
+			plugin.find('.accordion_in').each(function(index, elem){
 				var childs = $(elem).children();
 				$(childs[0]).addClass('acc_head');
 				$(childs[1]).addClass('acc_content');
@@ -73,15 +73,15 @@
 			//Hide inactive
 			plugin.find('.accordion_in .acc_content').not('.acc_active .acc_content').hide();
 
-			//Active /
-			if( settings.active/ === parseInt(settings.active/) ){
-				if(settings.active/ === 0){
+			//Active index
+			if( settings.activeIndex === parseInt(settings.activeIndex) ){
+				if(settings.activeIndex === 0){
 					plugin.find('.accordion_in').addClass('acc_active').show();
 					plugin.find('.accordion_in .acc_content').addClass('acc_active').show();
 				}
 				else{
-					plugin.find('.accordion_in').eq(settings.active/ - 1).addClass('acc_active').show();
-					plugin.find('.accordion_in .acc_content').eq(settings.active/ - 1).addClass('acc_active').show();
+					plugin.find('.accordion_in').eq(settings.activeIndex - 1).addClass('acc_active').show();
+					plugin.find('.accordion_in .acc_content').eq(settings.activeIndex - 1).addClass('acc_active').show();
 				}
 			}
 			

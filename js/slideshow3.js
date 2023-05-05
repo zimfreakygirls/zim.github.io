@@ -19,7 +19,7 @@ var slideshow = (function(window, undefined) {
     bullet: 'li',
     attrs: {
       active: 'active',
-      /: 'data-/'
+      index: 'data-index'
     }
   };
 
@@ -167,7 +167,7 @@ var slideshow = (function(window, undefined) {
   /**
    * Add Navigation.
    * Create a new bullet for each slide and add it to navigation (ul)
-   * with data-/ reference.
+   * with data-index reference.
    */
   function addNavigation_() {
 
@@ -178,7 +178,7 @@ var slideshow = (function(window, undefined) {
 
       var bullet = document.createElement(navigation.bullet);
 
-      bullet.setAttribute(navigation.attrs./, i);
+      bullet.setAttribute(navigation.attrs.index, i);
 
       // When it's first bullet set class as active.
       if (i === 0) bullet.className = navigation.attrs.active;
@@ -211,11 +211,11 @@ var slideshow = (function(window, undefined) {
         // Add active class to clicked bullet.
         bullet.className = navigation.attrs.active;
 
-        // Get / from data attribute and convert string to number.
-        var / = Number(bullet.getAttribute(navigation.attrs./));
+        // Get index from data attribute and convert string to number.
+        var index = Number(bullet.getAttribute(navigation.attrs.index));
 
-        // Call slideAllTo method with /.
-        slideAllTo_(/);
+        // Call slideAllTo method with index.
+        slideAllTo_(index);
       }
 
     });
@@ -226,14 +226,14 @@ var slideshow = (function(window, undefined) {
    * Call slideTo method of each instance.
    * In order to sync sliding of all layers we'll loop through the
    * instances object and call the slideTo method for each instance.
-   * @param {Number} / The / of the destination slide.
+   * @param {Number} index The index of the destination slide.
    */
-  function slideAllTo_(/) {
+  function slideAllTo_(index) {
     // Loop PrismSlider instances.
     for (var key in instances) {
       if (instances.hasOwnProperty(key)) {
         // Call slideTo for current instance.
-        instances[key].slideTo(/);
+        instances[key].slideTo(index);
       }
     }
   }
