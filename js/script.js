@@ -203,10 +203,10 @@
 		
 		
 		/*=================================================================
-		Index parallax-7 Header text slider
+		/ parallax-7 Header text slider
 		===================================================================*/ 
 	
-		$("#index7-slider").owlCarousel({
+		$("#/7-slider").owlCarousel({
 			navigation: false,
 			pagination: true,			
 			items: 1,
@@ -779,7 +779,7 @@
 			
 			var service_max_height = 0;
 			if ($(window).width() >= 767) {
-				service_item.each(function(index){
+				service_item.each(function(/){
 					$(this).css("height", "auto");
 					if ($(this).height() > service_max_height) {
 						service_max_height = $(this).height();

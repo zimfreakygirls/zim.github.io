@@ -29,7 +29,7 @@
 	overflow: hidden;
 	position: relative;
 	width: 100%;
-    z-index: 5;
+    z-/: 5;
 }
 .owl-carousel .owl-wrapper-outer.autoHeight{
 	-webkit-transition: height 500ms ease-in-out;
@@ -87,7 +87,7 @@
 }
 /* fade */
 .owl-fade-out {
-  z-index: 10;
+  z-/: 10;
   -webkit-animation: fadeOut .7s both ease;
   -moz-animation: fadeOut .7s both ease;
   animation: fadeOut .7s both ease;

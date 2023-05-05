@@ -37,7 +37,7 @@
 }
 .iS-SkinDots .iS-Previous {
 	position: absolute;	
-	z-index: 3;
+	z-/: 3;
 	cursor: pointer;
 	text-align: center;
 	width: 40px;
@@ -49,7 +49,7 @@
 }
 .iS-SkinDots .iS-Next {
 	position: absolute;	
-	z-index: 3;
+	z-/: 3;
 	cursor: pointer;
 	text-align: center;
 	width: 40px;
@@ -68,7 +68,7 @@
     text-align: center;
     top: 5%;
     width: 20px;
-    z-index: 3;
+    z-/: 3;
 }
 .iS-SkinDots .iS-Playactive {
 }
@@ -82,13 +82,13 @@
     text-align: center;
     top: 5%;
     width: 20px;
-    z-index: 3;
+    z-/: 3;
 }
 .iS-SkinDots .iS-Stopactive {
 }
 .iS-SkinDots .iS-Loopline {
 	position: absolute;
-	z-index: 3;
+	z-/: 3;
 	width: 100%;
 	height: 3px;
 	left: 0px;
@@ -109,11 +109,11 @@
 }
 .iS-SkinDots .iS-Dot {
 	position: relative;
-	z-index: 3;
+	z-/: 3;
 	cursor: pointer;
 	display: inline-block;
 	vertical-align: middle;
-	z-index: 3;
+	z-/: 3;
 	text-align: center;
 	width: 20px;
 	height: 20px;
