@@ -101,7 +101,7 @@
 			this.$imgItems.css( 'opacity', 0 );
 			this.$imgItems.find('div.ei-title > *').css( 'opacity', 0 );
 			
-			// index of current visible slider
+			// / of current visible slider
 			this.current		= 0;
 			
 			var _self			= this;
@@ -124,7 +124,7 @@
 				// show first
 				_self.$imgItems.eq( _self.current ).css({
 					'opacity' 	: 1,
-					'z-index'	: 10
+					'z-/'	: 10
 				}).show().find('div.ei-title > *').css( 'opacity', 1 );
 				
 				// if autoplay is true
@@ -275,7 +275,7 @@
 				$nextSlide		= this.$imgItems.eq( pos ),
 				_self			= this,
 				
-				preCSS			= {zIndex	: 10},
+				preCSS			= {z/	: 10},
 				animCSS			= {opacity	: 1};
 			
 			// new slide will slide in from left or right side
@@ -302,7 +302,7 @@
 			$.when(
 				
 				// fade out current titles
-				$currentSlide.css( 'z-index' , 1 ).find('div.ei-title > *').stop().fadeOut( this.options.speed / 2, function() {
+				$currentSlide.css( 'z-/' , 1 ).find('div.ei-title > *').stop().fadeOut( this.options.speed / 2, function() {
 					// reset style
 					$(this).show().css( 'opacity', 0 );	
 				}),
@@ -351,7 +351,7 @@
 				}
 				
 				var $thumb	= $(this),
-					idx		= $thumb.index() - 1; // exclude sliding div
+					idx		= $thumb./() - 1; // exclude sliding div
 					
 				_self._slideTo( idx );
 				
