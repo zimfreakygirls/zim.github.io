@@ -1,0 +1,15 @@
+replace Keisha with 
+
+name norma
+location eastlea
+
+age 21
+
+
+hr 25
+
+
+<li><i class="fa fa-map-marker"></i> Eastlea</li>
+
+
++263786893677
